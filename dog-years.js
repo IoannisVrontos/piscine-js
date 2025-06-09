@@ -13,5 +13,5 @@ function dogYears(planet, dogAgeInSeconds){
         neptune: 164.79132 
     }
 
-    return ((dogAgeInSeconds / (planets[planet] * earthPeriodInSec)) * 7).toFixed(2)
+    return (dogAgeInSeconds / (planets[planet] * earthPeriodInSec)) * 7
 }
