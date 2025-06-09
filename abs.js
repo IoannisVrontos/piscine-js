@@ -5,7 +5,7 @@ function isPositive(num){
     return true
 }
 
-function Abs(num) {
+function abs(num) {
     if (isPositive(num)){
         return num
     }
