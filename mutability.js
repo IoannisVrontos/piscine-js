@@ -6,8 +6,6 @@ class Person {
     }
 }
 
-const person = new Person('Rick',77,'US')
-
 const samePerson = person
 
 const clone1 = new Person('Rick',77,'US')
