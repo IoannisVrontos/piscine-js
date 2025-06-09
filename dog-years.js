@@ -15,3 +15,5 @@ function dogYears(planet, dogAgeInSeconds){
 
     return Number(((dogAgeInSeconds / (planets[planet] * earthPeriodInSec)) * 7).toFixed(2))
 }
+
+console.log(dogYears('mars',10000000000))
