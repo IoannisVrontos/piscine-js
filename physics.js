@@ -9,11 +9,13 @@ function getAcceleration(obj) {
     }
 
     if (typeof obj.t === 'number' && typeof obj.d == 'number'){
-        return (2*obj.d)/(obj.t)*(obj.t)
+        return (2*obj.d)/(obj.t*obj.t)
     }
 
     return "impossible"
 }
+
+console.log(getAcceleration({ d: 10, t: 2, Δv: 100 }))
 
 // a = F/m
 // a = Δv/Δt
