@@ -1,13 +1,4 @@
-function isPositive(num){
-    if (num < 1){
-        return false
-    }
-    return true
-}
+const isPositive = (num) => (num <= 0 ? false : true);
 
-function abs(num) {
-    if (isPositive(num) || num === 0){
-        return num
-    }
-    return (num*-1)
-}
+const abs = (num) => (isPositive(num) || num === 0 ? num : num*-1);
+
