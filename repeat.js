@@ -1,8 +1,9 @@
 const repeat = (str, n) => {
-    const text = str
-    while(n>1){
-        str += text;
-        n -= 1;
+    str = String(str)
+    let text = ""
+    while(n > 0){
+        text += str
+        n -= 1
     }
-    return str
+    return text
 }
