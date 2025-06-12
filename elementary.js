@@ -11,7 +11,7 @@ function sign(n){
 
 const isPositive = (num) => (num <= 0 ? false : true);
 
-const abs = (num) => (isPositive(num) || num === 0 ? num : num*-1);
+const abs = (num) => (isPositive(num) || num === 0 ? num : -num);
 
 const resultSign = (a,b) => {
     if (a === -1 && b === -1){
@@ -67,3 +67,6 @@ const modulo = (a, b) => {
     }
     return signA === -1 ? -a : a;
 }
+
+
+console.log(abs(-5))
