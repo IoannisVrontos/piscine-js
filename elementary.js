@@ -1,3 +1,4 @@
+
 function sign(n){
     if (n === 0){
         return 0
@@ -12,10 +13,20 @@ const isPositive = (num) => (num <= 0 ? false : true);
 
 const abs = (num) => (isPositive(num) || num === 0 ? num : num*-1);
 
+const resultSign = (a,b) => {
+    if (a === -1 && b === -1){
+        return 1
+    } 
+    if (a === -1 || b === -1){
+        return -1
+    }
+    return 1
+}
+
 const multiply = (a, b) => {
     const signA = sign(a);
     const signB = sign(b);
-    const resultSign = signA * signB;
+    const rS = resultSign(a,b);
     a = abs(a);
     b = abs(b);
     a = Number(a);
@@ -24,14 +35,14 @@ const multiply = (a, b) => {
     for (let i = 0; i < b; i++) {
         res += a;
     }
-    return resultSign === -1 ? -res : res;
+    return rS === -1 ? -res : res;
 }
 
 const divide = (a, b) => {
     if (b === 0) return NaN;
     const signA = sign(a);
     const signB = sign(b);
-    const resultSign = signA * signB;
+    const rS = resultSign(a,b);
     a = abs(a);
     b = abs(b);
     a = Number(a);
@@ -41,7 +52,7 @@ const divide = (a, b) => {
         a -= b;
         count += 1;
     }
-    return resultSign === -1 ? -count : count;
+    return rS === -1 ? -count : count;
 }
 
 const modulo = (a, b) => {
