@@ -26,7 +26,7 @@ const resultSign = (a,b) => {
 const multiply = (a, b) => {
     const signA = sign(a);
     const signB = sign(b);
-    const rS = resultSign(a,b);
+    const rS = resultSign(signA,signB);
     a = abs(a);
     b = abs(b);
     a = Number(a);
@@ -42,7 +42,7 @@ const divide = (a, b) => {
     if (b === 0) return NaN;
     const signA = sign(a);
     const signB = sign(b);
-    const rS = resultSign(a,b);
+    const rS = resultSign(signA,signB);
     a = abs(a);
     b = abs(b);
     a = Number(a);
@@ -69,4 +69,4 @@ const modulo = (a, b) => {
 }
 
 
-console.log(abs(-5))
+console.log(multiply(123, -22))
