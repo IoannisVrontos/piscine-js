@@ -1,4 +1,4 @@
-function chunky(nums = [], size) {
+function chunk(nums = [], size) {
     let chunks = [];
     let arr = [];
     for (let i = 0; i < nums.length; i += size) {
