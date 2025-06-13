@@ -6,10 +6,8 @@ function split(str,sep){
 
 
     for(let i=0;i<str.length;i++){
-        if (seplen+i < str.length) {
-            for(let j=i;j<seplen+i;j++){
-                seperator += str[j];
-            }
+        for(let j=i;j<seplen+i;j++){
+            seperator += str[j];
         }
         if (seperator === sep && word !== ""){
             arr.push(word)
