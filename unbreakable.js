@@ -1,34 +1,37 @@
-function split(str,sep){
-    const arr = [];
-    const seplen = sep.length
-    let seperator = "";
-    let word = "";
-
-
-    for(let i=0;i<str.length;i++){
-        for(let j=i;j<seplen+i;j++){
-            seperator += str[j];
+function split(str, sep) {
+    const result = [];
+    
+    if (sep === '') {
+        for (let i = 0; i < str.length; i++) {
+            result.push(str.charAt(i));
         }
-        if (seperator === sep && word !== ""){
-            arr.push(word)
-            word = "";
-            i += seplen-1;
-        } else {
-            word += str[i]
-        }
-        seperator = "";
+        return result;
     }
 
-    arr.push(word);
-    
-    return arr;
+    let lastIndex = 0;
+    let matchIndex = str.indexOf(sep, lastIndex);
+
+    while (matchIndex !== -1) {
+        result.push(str.slice(lastIndex, matchIndex));
+        lastIndex = matchIndex + sep.length;
+        matchIndex = str.indexOf(sep, lastIndex);
+    }
+
+    result.push(str.slice(lastIndex));
+
+    return result;
 }
 
-function join(arr = [],joiner=','){
+
+function join(arr = [], joiner = ',') {
+    if (arr.length === 0) {
+        return "";
+    }
     let res = "";
-    for(let i=0;i<arr.length-1;i++){
+    for (let i = 0; i < arr.length - 1; i++) {
         res += arr[i] + joiner;
     }
-    res += arr[arr.length-1];
+    res += arr[arr.length - 1];
     return res;
 }
+
