@@ -4,10 +4,10 @@
 //  T  -  A
 //  A  -  U
 
-function RNA(DNA){
+function RNA(str){
     let rna = '';
-    for (let i = 0; i < DNA.length; i++) {
-        switch (DNA[i]) {
+    for (let i = 0; i < str.length; i++) {
+        switch (str[i]) {
             case 'G':
                 rna += 'C';
                 break;
@@ -25,10 +25,10 @@ function RNA(DNA){
     return rna;
 }
 
-function DNA(RNA){
+function DNA(str){
     let dna = '';
-    for (let i = 0; i < RNA.length; i++) {
-        switch (RNA[i]) {
+    for (let i = 0; i < str.length; i++) {
+        switch (str[i]) {
             case 'G':
                 dna += 'C';
                 break;
@@ -43,4 +43,5 @@ function DNA(RNA){
                 break;
         }
     }
+    return dna;
 }
