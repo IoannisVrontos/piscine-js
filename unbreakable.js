@@ -1,26 +1,37 @@
-function split(str,separator){
+function split(str,sep){
     const arr = [];
-    let temp = "";
+    const seplen = sep.length
+    let seperator = "";
+    let word = "";
+
+
     for(let i=0;i<str.length;i++){
-        if (str[i] === separator && temp !== ""){
-            arr.push(temp);
-            temp = "";
-        } else {
-            temp += str[i]
+        if (seplen+i < str.length) {
+            for(let j=i;j<seplen+i;j++){
+                seperator += str[j];
+            }
         }
+        if (seperator === sep && word !== ""){
+            arr.push(word)
+            word = "";
+            i += seplen-1;
+        } else {
+            word += str[i]
+        }
+        seperator = "";
     }
-    if (temp !== ""){
-        arr.push(temp);
+
+    if (word !== ""){
+        arr.push(word);
     }
-    return arr
+    return arr;
 }
 
 function join(arr = [],joiner=','){
-    let res = ""
+    let res = "";
     for(let i=0;i<arr.length-1;i++){
-        res += arr[i] + joiner
+        res += arr[i] + joiner;
     }
-    res += arr[arr.length-1]
-    return res
+    res += arr[arr.length-1];
+    return res;
 }
-
