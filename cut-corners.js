@@ -21,7 +21,7 @@ const floor = (n) => {
     if (n<0 && n !== tr){
         return tr - 1;
     }
-    return tr
+    return tr;
 };
 
 const ceil = (n) => {
@@ -29,9 +29,9 @@ const ceil = (n) => {
     if (n>0 && n !== tr){
         return tr + 1;
     }
-    return tr
+    return tr;
 };
 
 const round = (n) => {
-    return floor(n + 0.5)
+    return floor(n + 0.5);
 };
