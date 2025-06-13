@@ -19,5 +19,5 @@ function findExpression(num) {
   }
 
   const result = find(1, "1");
-  return result === null ? undefined : result.replace("1 ", ""); 
+  return result === null ? undefined : result;
 }
