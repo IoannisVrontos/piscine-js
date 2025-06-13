@@ -19,9 +19,8 @@ function split(str,sep){
         seperator = "";
     }
 
-    if (word !== ""){
-        arr.push(word);
-    }
+    arr.push(word);
+    
     return arr;
 }
 
