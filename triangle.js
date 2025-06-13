@@ -1,4 +1,4 @@
-function triangle(height) {
+function triangle(str,height) {
   if (height < 1) {
     return "";
   }
@@ -6,7 +6,7 @@ function triangle(height) {
   let result = "";
   for (let i = 1; i <= height; i++) {
     for (let j = 1; j <= i; j++) {
-      result += "*";
+      result += str;
     }
     if (i < height) {
       result += "\n";
@@ -15,4 +15,4 @@ function triangle(height) {
   return result;
 }
 
-// console.log(triangle(5));
+// console.log(triangle('j',5));
