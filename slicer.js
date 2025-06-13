@@ -1,13 +1,31 @@
-function slice (elem, startIndx = 0, endIndx = elem.length){
-    let newSlice = []
-    let count = 0
-    for (let i=startIndx;i<=endIndx-1;i++){
-        newSlice[count] = elem[i]
-        count++
+function slice (elem, startIndx, endIndx) {
+    if (elem == null) {
+        return typeof elem === 'string' ? '' : [];
     }
-    return newSlice
+    
+    const len = elem.length;
+
+    let start = startIndx === undefined ? 0 : startIndx;
+    if (start < 0) {
+        start = Math.max(len + start, 0);
+    }
+
+    let end = endIndx === undefined ? len : endIndx;
+    if (end < 0) {
+        end = Math.max(len + end, 0);
+    } else {
+        end = Math.min(end, len);
+    }
+
+    //slice logic
+    const newSlice = [];
+    for (let i = start; i < end; i++) {
+        newSlice.push(elem[i]);
+    }
+
+    if (Array.isArray(elem)) {
+        return newSlice;
+    } else {
+        return newSlice.join('');
+    }
 }
-
-// const animals = ["ant", "bison", "camel", "duck", "elephant"];
-
-// console.log(slice(animals,1,5))
