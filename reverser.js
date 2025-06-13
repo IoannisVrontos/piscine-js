@@ -1,8 +1,13 @@
-function reverse(arr = []) {
-    const arrlen = arr.length-1
-    let result = []
-    for(let i=arrlen;i>=0;i--){
-        result.push(arr[i])
+function reverse(elem) {
+    const elemlen = arr.length-1 
+    const newSlice = [];
+    for (let i = elemlen; i >= 0; i--) {
+        newSlice.push(elem[i]);
     }
-    return result
+
+    if (Array.isArray(elem)) {
+        return newSlice;
+    } else {
+        return newSlice.join('');
+    }
 }
