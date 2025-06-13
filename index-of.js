@@ -7,7 +7,7 @@ function indexOf(arr = [], searchElement, fromIndex = 0) {
     return -1;
 }
 
-function include(arr = [],searchElement){
+function includes(arr = [],searchElement){
     if (indexOf(arr,searchElement) !== -1){
         return true
     }
