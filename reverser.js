@@ -1,5 +1,5 @@
 function reverse(elem) {
-    const elemlen = arr.length-1 
+    const elemlen = elem.length-1 
     const newSlice = [];
     for (let i = elemlen; i >= 0; i--) {
         newSlice.push(elem[i]);
@@ -11,3 +11,6 @@ function reverse(elem) {
         return newSlice.join('');
     }
 }
+
+
+console.log(reverse([1,2,3,4]))
