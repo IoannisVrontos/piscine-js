@@ -1,20 +1,20 @@
 function pyramid(str,height) {
     if (height < 1) {
-    return "";
-  }
-  let result = "";
-  for (let i = 1; i <= height; i++) {
-    for (let j = 1; j <= height - i; j++) {
-      result += " ";
+        return "";
     }
-    for (let j = 1; j <= 2 * i - 1; j++) {
-      result += str;
+    let result = "";
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= (height - i) * str.length; j++) {
+        result += " ";
+        }
+        for (let j = 1; j <= 2 * i - 1; j++) {
+        result += str;
+        }
+        if (i < height) {
+        result += "\n";
+        }
     }
-    if (i < height) {
-      result += "\n";
-    }
-  }
-  return result;
+    return result;
 }
 
-console.log(pyramid('j',5));
+// console.log(pyramid('jj',5));
