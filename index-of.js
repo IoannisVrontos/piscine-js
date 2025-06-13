@@ -14,17 +14,12 @@ function include(arr = [],searchElement){
     return false
 }
 
-function lastIndexOf(arr = [], searchElement, fromIndex = 0) {
-    let find = false;
-    let pos = 0;
-    for (let i = fromIndex; i < arr.length; i++) {
+// Η διόρθωση εστιάζει στον βρόχο for
+function lastIndexOf(arr = [], searchElement, fromIndex = arr.length - 1) {
+    for (let i = fromIndex; i >= 0; i--) {
         if (arr[i] === searchElement) {
-            find = true;
-            pos = i
+            return i; 
         }
     }
-    if (find === true) {
-        return pos
-    }
-    return -1;
+    return -1; 
 }
