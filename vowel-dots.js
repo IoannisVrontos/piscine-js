@@ -5,8 +5,9 @@
 
 // a, e, i, o and u are considered as vowels here.
 
+
+const vowels = /[aeiou]/gi;
+
 function vowelDots(str) {
-    const vowels = /[aeiou]/gi;
-  
     return str.replace(vowels, '$&.');
 }
