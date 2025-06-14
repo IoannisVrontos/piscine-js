@@ -4,10 +4,11 @@
 // and is not followed by any letter.
 
 function letterSpaceNumber(str) {
-    const regex = /[a-zA-Z]\s\d(?!\d)/g;
+    const regex = /[a-zA-Z]\s\d\b/g;
     const matches = str.match(regex);
     return matches || [];
 }
 
 // console.log(letterSpaceNumber('example 1, example 20'))
 // output: ['e 1']
+// console.log(letterSpaceNumber('I like 7up.'))
