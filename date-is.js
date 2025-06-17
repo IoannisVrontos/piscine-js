@@ -3,25 +3,20 @@ function isValid(d) {
    return !isNaN(+new Date(d));
 }
 
-// accepts two Date arguments, and returns true if the first is greater then the second.
-function isAfter(d1 = new Date(),d2 = new Date()){
-    return d1 > d2
+function isAfter(d1, d2){
+    return new Date(d1) > new Date(d2);
 }
 
-// accepts two Date arguments, and returns true if the second is greater than the first.
-function isBefore(d1 = new Date(),d2 = new Date()){
-    return d1 < d2
+function isBefore(d1, d2){
+    return new Date(d1) < new Date(d2);
 }
 
 // accepts a Date, and returns true if the Date is valid, and is after than the present date.
 function isFuture(d){
-    return (isValidDate(d) && isAfter(d,now = new Date()))
+    return isValid(d) && isAfter(d, new Date());
 }
 
-// accepts a Date, and returns true if the Date is valid, and is before the present date.
 function isPast(d){
-    return (isValidDate(d) && isBefore(d,now = new Date()))
+    return isValid(d) && isBefore(d, new Date());
 }
 
-
-// console.log(isValid(Date.now()))
