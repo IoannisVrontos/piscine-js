@@ -7,7 +7,7 @@ function addWeek(d = new Date()){
 
     const dayToStr = days[d.getDay()];
 
-    if ((dateNum%14)<=7){
+    if (((dateNum%14)<=7) && (dateNum%14>0)){
         return dayToStr;
     } else {
         return "second"+dayToStr;
