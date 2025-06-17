@@ -9,7 +9,7 @@ function addWeek(d = new Date()){
 
     const baseDate = new Date('0001-01-01');
     const msPerDay = 24 * 60 * 60 * 1000;
-    const daysPassed = Math.floor((d - baseDate) / msPerDay);
+    const daysPassed = (Math.floor((d - baseDate) / msPerDay))+1;
 
     const dayToStr = days[d.getDay()];
 
