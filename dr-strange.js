@@ -1,8 +1,6 @@
 function addWeek(d = new Date()){
     const dateNum = d.getDate()
 
-    console.log(d.getDate())
-
     const days = ["Sunday", "Monday", 
         "Tuesday", "Wednesday", "Thursday", 
         "Friday", "Saturday"];
@@ -26,5 +24,5 @@ function timeTravel(obj = {}){
     obj.date.setHours(obj.hour);
     obj.date.setMinutes(obj.minute);
     obj.date.setSeconds(obj.second);
-    return obj.date.toString()
+    return new Date(obj.date)
 }
