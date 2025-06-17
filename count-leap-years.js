@@ -4,15 +4,13 @@ function isLeapYear(year){
 
 function countLeapYears(date){
     let count = 0;
-    const nowYear = date.getFullYear();
-    let years = 1;
-    while (years <= nowYear){
-        if(isLeapYear(years)){
+    const dateYear = date.getFullYear();
+    let year = 1;
+    while (year < dateYear){
+        if(isLeapYear(year)){
             count++;
         }
-        years++;
+        year++;
     }
     return count;
 }
-
-console.log(countLeapYears(new Date('2020-10-10')));
