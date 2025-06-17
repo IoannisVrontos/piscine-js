@@ -1,5 +1,5 @@
 // accepts a Date, and returns false if the Date is invalid.
-function isValidDate(d) {
+function isValid(d) {
   return d instanceof Date && !isNaN(d);
 }
 
