@@ -1,7 +1,14 @@
 
 function isValid(date) {
-  return date instanceof Date && !isNaN(date.getTime());
+  if (typeof date === 'number') {
+    return isFinite(date);
+  }
+  if (date instanceof Date) {
+    return !isNaN(date.getTime());
+  }
+  return false;
 }
+
 
 function isAfter(date, dateToCompare) {
   return date > dateToCompare;
