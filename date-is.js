@@ -1,6 +1,6 @@
 // accepts a Date, and returns false if the Date is invalid.
 function isValid(d) {
-  return d instanceof Date && !isNaN(d);
+   return !isNaN(+new Date(d));
 }
 
 // accepts two Date arguments, and returns true if the first is greater then the second.
@@ -22,3 +22,6 @@ function isFuture(d){
 function isPast(d){
     return (isValidDate(d) && isBefore(d,now = new Date()))
 }
+
+
+// console.log(isValid(Date.now()))
