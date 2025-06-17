@@ -6,7 +6,9 @@ function firstDayWeek(weekNumber, yearString) {
     return 'Invalid input. Please provide a week number (1-53) and a valid year.';
   }
 
-  const firstDayOfYear = new Date(Date.UTC(year, 0, 1));
+  const firstDayOfYear = new Date(0);
+  firstDayOfYear.setUTCHours(0, 0, 0, 0);
+  firstDayOfYear.setUTCFullYear(year, 0, 1);
 
   const dayOfWeek = firstDayOfYear.getUTCDay();
 
@@ -19,10 +21,12 @@ function firstDayWeek(weekNumber, yearString) {
   targetMonday.setUTCDate(mondayOfFirstWeek.getUTCDate() + (weekNumber - 1) * 7);
 
   const formatDate = (date) => {
-    const day = String(date.getUTCDate()).padStart(2, '0');
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
     const fullYear = date.getUTCFullYear();
-    return `${day}-${month}-${fullYear}`;
+    const yearStr = String(fullYear).padStart(4, '0');
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+
+    return `${day}-${month}-${yearStr}`;
   };
 
   if (targetMonday.getUTCFullYear() < year) {
