@@ -1,22 +1,20 @@
-// accepts a Date, and returns false if the Date is invalid.
-function isValid(d) {
-   return !isNaN(+new Date(d));
+
+function isValid(date) {
+  return !isNaN(date.getTime());
 }
 
-function isAfter(d1, d2){
-    return new Date(d1) > new Date(d2);
+function isAfter(date, dateToCompare) {
+  return date > dateToCompare;
 }
 
-function isBefore(d1, d2){
-    return new Date(d1) < new Date(d2);
+function isBefore(date, dateToCompare) {
+  return date < dateToCompare;
 }
 
-// accepts a Date, and returns true if the Date is valid, and is after than the present date.
-function isFuture(d){
-    return isValid(d) && isAfter(d, new Date());
+function isFuture(date) {
+  return isValid(date) && isAfter(date, new Date());
 }
 
-function isPast(d){
-    return isValid(d) && isBefore(d, new Date());
+function isPast(date) {
+  return isValid(date) && isBefore(date, new Date());
 }
-
