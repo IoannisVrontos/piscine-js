@@ -1,7 +1,7 @@
 function fold(array,func,accumulator){
     let result = accumulator
     for(let i=0;i<array.length;i++){
-        result = func(array[i],i,array);
+        result = func(result,array[i],i,array);
     }
     return result
 }
