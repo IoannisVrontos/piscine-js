@@ -19,7 +19,7 @@ function reject(arr=[],func){
 }
 
 function partition(arr=[],func){
-    const resultArr = [[]];
+    const resultArr = [[], []];
     for(let i=0; i < arr.length; i++){
         if (func(arr[i],i,arr)){
             resultArr[0].push(arr[i]);
