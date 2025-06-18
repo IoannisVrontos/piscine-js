@@ -15,7 +15,6 @@ function sumOrMul(array = [], initialValue = 0){
     return array.reduce(check,initialValue)
 }
 
-const funcExec =
-  (...functions) =>
-  (initialValue) =>
-    functions.reduce((acc, fn) => fn(acc), initialValue);
+function funcExec(functions, initialValue) {
+    return functions.reduce((acc, fn) => fn(acc), initialValue);
+}
