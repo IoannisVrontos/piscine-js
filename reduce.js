@@ -15,16 +15,22 @@ function foldRight(array, func, accumulator) {
 }
 
 function reduce(array, func) {
-  let result = 0;
-  for (let i = 0; i < array.length; i++) {
+  if (array.length < 1) {
+    throw new Error("Reduce of empty array with no initial value");
+  }
+  let result = array[0];
+  for (let i = 1; i < array.length; i++) {
     result = func(result, array[i], i, array);
   }
   return result;
 }
 
 function reduceRight(array, func) {
-  let result = 0;
-  for (let i = array.length - 1; i >= 0; i--) {
+  if (array.length < 1) {
+    throw new Error("Reduce of empty array with no initial value");
+  }
+  let result = array[array.length - 1];
+  for (let i = array.length - 2; i >= 0; i--) {
     result = func(result, array[i], i, array);
   }
   return result;
