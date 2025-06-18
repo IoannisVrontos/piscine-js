@@ -7,9 +7,9 @@ function adder(array = [], initialValue = 0){
 function sumOrMul(array = [], initialValue = 0){
     const check = (a, b) => {
         if (b % 2 === 0) {
-            return a + b;
-        } else {
             return a * b;
+        } else {
+            return a + b;
         }
     }
     return array.reduce(check,initialValue)
