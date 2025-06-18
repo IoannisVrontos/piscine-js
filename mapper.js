@@ -1,6 +1,7 @@
-function map(arr=[],func){
-    for(let i=0;i<arr.length;i++){
-        func(arr[i]);
+function map(arr=[], func){
+    const newArr = []; 
+    for(let i=0; i < arr.length; i++){
+        newArr.push(func(arr[i]));
     }
-    return arr
+    return newArr; 
 }
