@@ -1,6 +1,5 @@
 function fold(array,func,accumulator){
-    const init = func(accumulator, 0, array);
-    let result = init
+    let result = accumulator
     for(let i=0;i<array.length;i++){
         result = func(array[i],i,array);
     }
