@@ -13,8 +13,8 @@ function upperCasingStates(states){
 function fahrenheitToCelsius(temperatures){
     return temperatures.map(temperature => {
         const tempNum = Number(temperature.slice(0,-2))
-        const celsius = Math.round((tempNum - 32) * (5/9))
-        return temperature = celsius + "°C"
+        const celsius = Math.floor((tempNum - 32) * (5/9))
+        return celsius + "°C"
     })
 }
 
