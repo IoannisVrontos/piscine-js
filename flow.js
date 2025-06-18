@@ -1,4 +1,5 @@
-const flow =
-  (...functions) =>
-  (initialValue) =>
-    functions.reduce((acc, fn) => fn(acc), initialValue);
+function flow(functions) {
+  return function (input) {
+    return functions.reduce((acc, fn) => fn(acc), input);
+  };
+}
