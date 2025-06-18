@@ -19,7 +19,10 @@ function fahrenheitToCelsius(temperatures){
 }
 
 function trimTemp(obj){
-    return obj.map(({city , temperature}) => ({city : city,temperature : temperature.split(' ').join('')}) )
+    return obj.map(item => ({
+        ...item,
+        temperature: item.temperature.split(' ').join('')
+    }))
 }
 
 function tempForecasts(obj){
