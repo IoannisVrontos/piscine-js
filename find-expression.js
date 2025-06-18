@@ -1,10 +1,9 @@
 function findExpression(num) {
-
   function find(current, expression) {
     if (current === num) {
       return expression;
     } else if (current > num) {
-      return null; 
+      return null;
     } else {
       let found = find(current * 2, expression + " " + mul2);
       if (found) {
@@ -14,7 +13,7 @@ function findExpression(num) {
       if (found) {
         return found;
       }
-      return null; 
+      return null;
     }
   }
 

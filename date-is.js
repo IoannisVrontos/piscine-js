@@ -1,6 +1,5 @@
-
 function isValid(date) {
-  if (typeof date === 'number') {
+  if (typeof date === "number") {
     return isFinite(date);
   }
   if (date instanceof Date) {
@@ -8,7 +7,6 @@ function isValid(date) {
   }
   return false;
 }
-
 
 function isAfter(date, dateToCompare) {
   return date > dateToCompare;

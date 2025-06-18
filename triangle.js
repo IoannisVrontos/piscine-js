@@ -1,4 +1,4 @@
-function triangle(str,height) {
+function triangle(str, height) {
   if (height < 1) {
     return "";
   }
@@ -14,5 +14,3 @@ function triangle(str,height) {
   }
   return result;
 }
-
-// console.log(triangle('j',5));

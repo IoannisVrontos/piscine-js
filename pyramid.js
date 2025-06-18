@@ -16,5 +16,3 @@ function pyramid(str, height) {
   }
   return result;
 }
-
-// console.log(pyramid('jj',5));

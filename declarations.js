@@ -1,8 +1,6 @@
 function deepFreeze(object) {
-  // Retrieve the property names defined on object
   const propNames = Reflect.ownKeys(object);
 
-  // Freeze properties before freezing self
   for (const name of propNames) {
     const value = object[name];
 
@@ -14,27 +12,26 @@ function deepFreeze(object) {
   return Object.freeze(object);
 }
 
+const escapeStr = "`\\/\"'";
 
-const escapeStr = "`\\/\"'"
-
-const arr = [4,'2']
+const arr = [4, "2"];
 
 const obj = {
-    str : "",
-    num : 0,
-    bool : false,
-    undef : undefined
-}
+  str: "",
+  num: 0,
+  bool: false,
+  undef: undefined,
+};
 
 const nested = {
-    arr : [4, undefined,'2'],
-    obj : {
-        str : "",
-        num : 0,
-        bool : false
-    }
-}
+  arr: [4, undefined, "2"],
+  obj: {
+    str: "",
+    num: 0,
+    bool: false,
+  },
+};
 
-deepFreeze(nested)
-deepFreeze(arr)
-deepFreeze(obj)
+deepFreeze(nested);
+deepFreeze(arr);
+deepFreeze(obj);
