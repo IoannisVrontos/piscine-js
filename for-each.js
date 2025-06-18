@@ -1,4 +1,4 @@
-function forEach(arr,func){
+function forEach(arr=[],func){
     for(let i=0;i<arr.length;i++){
         func(arr[i])
     }
