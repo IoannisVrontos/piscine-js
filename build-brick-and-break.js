@@ -13,11 +13,10 @@ export function build(amount) {
     brick.setAttribute("id", "brick-" + i);
 
     if (i === middle) {
-      brick.setAttribute("foundation", "true");
+      brick.dataset.foundation = "true";
       middle += 3;
     }
     body.append(brick);
-    console.log(brick);
     i++;
   }, 100);
 }
@@ -27,9 +26,9 @@ export function repair(...ids) {
     let elem = document.getElementById(id);
 
     if (elem.hasAttribute("foundation")) {
-      elem.setAttribute("repaired", "in progress");
+      elem.dataset.repaired = "in progress";
     } else {
-      elem.setAttribute("repaired", "true");
+      elem.dataset.repaired = "true";
     }
     console.log(elem);
   }
