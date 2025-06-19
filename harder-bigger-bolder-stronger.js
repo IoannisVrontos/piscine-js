@@ -5,9 +5,9 @@ export function generateLetters() {
     const newDiv = document.createElement("div");
     const letter = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
     newDiv.style.fontSize = fontSize + "px";
-    if (i <= 40) {
+    if (i <= 39) {
       newDiv.style.fontWeight = 300;
-    } else if (i > 40 && i <= 80) {
+    } else if (i > 39 && i <= 79) {
       newDiv.style.fontWeight = 400;
     } else {
       newDiv.style.fontWeight = 600;
