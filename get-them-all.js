@@ -2,7 +2,6 @@ export function getArchitects() {
   const architects = document.getElementsByTagName("a");
   const nonArchitects = document.getElementsByTagName("span");
 
-  console.log([[...architects], [...nonArchitects]]);
   return [[...architects], [...nonArchitects]];
 }
 
@@ -11,7 +10,6 @@ export function getClassical() {
 
   const nonClassicalArchitects = document.querySelectorAll("a:not(.classical)");
 
-  console.log([[...classicalArchitects], [...nonClassicalArchitects]]);
   return [[...classicalArchitects], [...nonClassicalArchitects]];
 }
 
@@ -23,10 +21,6 @@ export function getActive() {
     "a.classical:not(.active)"
   );
 
-  console.log([
-    [...classicalArchitectsActive],
-    [...classicalArchitectsNonActive],
-  ]);
   return [[...classicalArchitectsActive], [...classicalArchitectsNonActive]];
 }
 export function getBonannoPisano() {
@@ -34,5 +28,5 @@ export function getBonannoPisano() {
   const remainingArchitects = document.querySelectorAll(
     "a.classical.active:not(.BonannoPisano)"
   );
-  console.log(bonannoPisano, [...remainingArchitects]);
+  return [bonannoPisano, [...remainingArchitects]];
 }
