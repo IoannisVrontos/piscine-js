@@ -13,7 +13,7 @@ export function build(amount) {
     brick.setAttribute("id", "brick-" + i);
 
     if (i === middle) {
-      brick.setAttribute("foundation", true);
+      brick.setAttribute("foundation", "true");
       middle += 3;
     }
     body.append(brick);
@@ -29,7 +29,7 @@ export function repair(...ids) {
     if (elem.hasAttribute("foundation")) {
       elem.setAttribute("repaired", "in progress");
     } else {
-      elem.setAttribute("repaired", true);
+      elem.setAttribute("repaired", "true");
     }
     console.log(elem);
   }
