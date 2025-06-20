@@ -1,98 +1,76 @@
+let lastCircle = null;
+let isTrapped = false;
+
 export function createCircle() {
   document.addEventListener("mousedown", (event) => {
-    const mpX = event.clientX;
-    const mpY = event.clientY;
     const circle = document.createElement("div");
     circle.classList.add("circle");
-    circle.style.left = mpX - 25 + "px";
-    circle.style.top = mpY - 25 + "px";
+
+    circle.style.background = "white";
+
+    const radius = 25;
+    circle.style.left = `${event.clientX - radius}px`;
+    circle.style.top = `${event.clientY - radius}px`;
+
     document.body.appendChild(circle);
-    const box = document.querySelector(".box");
-    const boxBound = box.getBoundingClientRect();
-    const circleBound = circle.getBoundingClientRect();
-    if (
-      circleBound.top > boxBound.top &&
-      circleBound.bottom < boxBound.bottom &&
-      circleBound.left > boxBound.left &&
-      circleBound.right < boxBound.right
-    ) {
-      circle.style.backgroundColor = "var(--purple)";
-    } else {
-      circle.style.backgroundColor = "white";
-    }
-    moveCircle();
+
+    lastCircle = circle;
+    isTrapped = false;
   });
 }
 
-const mouseMoveOutOfTheBox = (event) => {
-  let circles = document.querySelectorAll(".circle");
-  if (circles.length > 0) {
-    let lastCircle = circles[circles.length - 1];
-    const mpX = event.clientX;
-    const mpY = event.clientY;
-    lastCircle.style.left = mpX - 25 + "px";
-    lastCircle.style.top = mpY - 25 + "px";
-    const box = document.querySelector(".box");
-    const boxBound = box.getBoundingClientRect();
-    const circleBound = lastCircle.getBoundingClientRect();
-    if (
-      circleBound.top > boxBound.top &&
-      circleBound.bottom < boxBound.bottom &&
-      circleBound.left > boxBound.left &&
-      circleBound.right < boxBound.right
-    ) {
-      lastCircle.style.backgroundColor = "var(--purple)";
-      document.removeEventListener("mousemove", mouseMoveInTheBox);
-      trapMouse();
-    }
-  }
-};
-
-const mouseMoveInTheBox = (event) => {
-  const circles = document.querySelectorAll(".circle");
-  if (circles.length === 0) return;
-
-  const lastCircle = circles[circles.length - 1];
-  const box = document.querySelector(".box");
-  const boxBound = box.getBoundingClientRect();
-
-  const circleSize = 50;
-  const radius = circleSize / 2;
-
-  const targetX = event.clientX - radius;
-  const targetY = event.clientY - radius;
-
-  const innerLeft = boxBound.left + 1;
-  const innerRight = boxBound.right - 1;
-  const innerTop = boxBound.top + 1;
-  const innerBottom = boxBound.bottom - 1;
-
-  const finalX = Math.max(
-    innerLeft,
-    Math.min(targetX, innerRight - circleSize)
-  );
-
-  const finalY = Math.max(
-    innerTop,
-    Math.min(targetY, innerBottom - circleSize)
-  );
-
-  lastCircle.style.left = finalX + "px";
-  lastCircle.style.top = finalY + "px";
-};
-
 export function moveCircle() {
-  document.addEventListener("mousemove", mouseMoveOutOfTheBox);
+  document.addEventListener("mousemove", (event) => {
+    if (!lastCircle) {
+      return;
+    }
+
+    const box = document.querySelector(".box");
+    if (!box) {
+      return;
+    }
+
+    const boxRect = box.getBoundingClientRect();
+    const radius = 25;
+
+    let x = event.clientX;
+    let y = event.clientY;
+
+    if (!isTrapped) {
+      const circleLeft = x - radius;
+      const circleTop = y - radius;
+      const circleRight = x + radius;
+      const circleBottom = y + radius;
+
+      const isInside =
+        circleLeft >= boxRect.left + 1 &&
+        circleRight <= boxRect.right - 1 &&
+        circleTop >= boxRect.top + 1 &&
+        circleBottom <= boxRect.bottom - 1;
+
+      if (isInside) {
+        isTrapped = true;
+        lastCircle.style.background = "var(--purple)";
+      }
+    }
+
+    if (isTrapped) {
+      const minX = boxRect.left + 1 + radius;
+      const maxX = boxRect.right - 1 - radius;
+      const minY = boxRect.top + 1 + radius;
+      const maxY = boxRect.bottom - 1 - radius;
+
+      x = Math.max(minX, Math.min(x, maxX));
+      y = Math.max(minY, Math.min(y, maxY));
+    }
+
+    lastCircle.style.left = `${x - radius}px`;
+    lastCircle.style.top = `${y - radius}px`;
+  });
 }
 
 export function setBox() {
   const box = document.createElement("div");
   box.classList.add("box");
   document.body.appendChild(box);
-}
-
-function trapMouse() {
-  document.removeEventListener("mousemove", mouseMoveOutOfTheBox);
-
-  document.addEventListener("mousemove", mouseMoveInTheBox);
 }
